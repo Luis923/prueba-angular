@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="row mb-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Top Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Products</a>
+            </li>
+          </ul>
+        </div>
+        <form class="d-flex">
+          <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Q</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="row">
+    <h1 class="titulo_principal fs-3 fw-bold">Hello Rocky <img src="../../../assets/emoticon.jfif" class="imagen_titulo_principal" alt="" srcset=""></h1>
+    <p class="fw-lighter">Lets gets somethings?</p>
+  </div>
+  <div class="row">
+    <div class="caja_oferta_ropa col-4 col-md-3 p-3 text-white mx-3">
+      <h2 class="fs-4">30% OFF DURING  COVID 19</h2>
+      <a href="" class="enlace_oferta btn btn-light rounded-pill">Get Now</a>
+    </div>
+    <div class="caja_oferta_accesorios col-4 col-md-3 p-3 text-white">
+      <h2 class="fs-4">30% OFF DURING  COVID 19</h2>
+      <a href="" class="enlace_accesorios btn rounded-pill text-white">Get Now</a>
+    </div>
+  </div>
+  <div class="row caja_allCategories mt-5 d-flex justify-content-between">
+    <div class="col-6">
+      <h2>Top Categories</h2>
+    </div>
+    <div class="col-4">
+      <button
+      type="button"
+      class="button_allCategories btn btn-light fs-3"
+      (click)="onVerTodo()"
+      >SEE ALL</button>
+    </div>
+  </div>
+  <div class="row filtros">
+    <div class="col-1">
+      <button
+      type="button"
+      class="elemento_filtros btn btn-light "
+      [style]="filtroRopaMasculina? estiloBotonPresionado: estiloBotonNoPresionado"
+      (click)="onFiltrarRopaMasculina()"
+      >
+        <i class="fa fa-mars fa-2x" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="col-1">
+      <button
+      type="button"
+      class="elemento_filtros btn btn-light "
+      [style]="filtroRopaFemenima? estiloBotonPresionado: estiloBotonNoPresionado"
+      (click)="onFiltrarRopaFemenina()"
+      >
+        <i class="fa fa-venus fa-2x" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="col-1">
+      <button
+      type="button"
+      class="elemento_filtros btn btn-light"
+      [style]="filtroJoyeria? estiloBotonPresionado: estiloBotonNoPresionado"
+      (click)="onFiltrarJoyeria()"
+      >
+        <i class="fa fa-diamond fa-2x" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="col-1">
+      <button
+      type="button"
+      class="elemento_filtros btn btn-light"
+      [style]="filtroDispositivos? estiloBotonPresionado: estiloBotonNoPresionado"
+      (click)="onFiltrarDispositivos()"
+      >
+        <i class="fa fa-television fa-2x" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row caja_todos_productos gy-3 gx-5">
+    <div class="caja_producto col-6 col-sm-4 col-md-3 p-4 border" *ngFor="let producto of productos">
+      <div class="row d-flex justify-content-between">
+        <div class="col-6">
+          <a href="" class="btn btn-light rounded-pill mt-2 fw-bold">30% OFF</a>
+        </div>
+        <div class="col-2">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="row caja_imagen_producto">
+        <img src={{producto.image}} class="imagen_producto mx-auto d-block img-fluid" alt="" srcset="">
+      </div>
+      <div class="row datos_producto p-2 mt-3 rounded">
+        <div class="col-12">
+          <p class="titulo_producto fw-light overflow-hidden">{{producto.title}}</p>
+          <p class="precio_producto"><span class="fs-3 fw-bold">${{producto.price}}   </span><span class="text-decoration-line-through">$200</span></p>
+        </div>
+        <div class="col-12 col-sm-6">
+          <input
+            type="number"
+            class="form-control"
+            [formControl]="cantidad"
+          >
+        </div>
+        <div class="col-12 col-sm-6">
+          <button
+            type="button"
+            class="boton_producto btn text-white"
+            (click)="onAgregarProductoCarrito(producto.id)"
+          >Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+
+$orange: rgba(244, 109, 52, 1);
+.caja_oferta_ropa{
+  background-color: $orange;
+  border-radius: 5%;
+
+  .enlace_oferta{
+    color: $orange;
+  }
+}
+.caja_oferta_accesorios{
+  background-color: rgba(27, 131, 238, 1);
+  border-radius: 5%;
+
+  .enlace_accesorios{
+    background-color: rgba(156, 70, 255, 1);
+  }
+}
+.imagen_titulo_principal{
+  height: 20px;
+}
+.caja_allCategories{
+  .button_allCategories{
+    color: $orange;
+  }
+}
+.filtros{
+  .elemento_filtros{
+
+  }
+}
+.caja_todos_productos{
+  .caja_producto{
+    background-color: white;
+    .caja_imagen_producto{
+      height: 300px;
+      .imagen_producto{
+        max-height: 300px;
+      }
+    }
+    .datos_producto{
+      background-color: rgb(236, 234, 234);
+      .titulo_producto{
+        height: 50px;
+      }
+      .precio_producto{
+        height: 50px;
+      }
+      .boton_producto{
+        background-color: $orange !important;
+      }
+    }
+  }
+}

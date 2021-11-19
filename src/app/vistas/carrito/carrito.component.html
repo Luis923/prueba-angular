@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-1">
+      <button
+          type="button"
+          class="btn btn-primary"
+          (click)="onRegresarTienda()"
+        ><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    </div>
+    <div class="col-11">
+      <h1 class="text-center">My cart</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 p-3" *ngFor="let datosProducto of datosProductos">
+      <div class="row">
+        <div class="col-3">
+          <img src={{datosProducto.image}} class="imagen_producto mx-auto d-block img-fluid" alt="">
+        </div>
+        <div class="col-9">
+          <div class="row">
+            <div class="col-9">
+              <h2 class="fs-6 fs-sm-5 fs-md-4">{{datosProducto.title}}</h2>
+            </div>
+            <div class="col-3">
+              <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="onQuitarProductoCarrito(datosProducto.id)"
+                >X</button>
+            </div>
+          </div>
+          <p>Size:36</p>
+          <div class="row">
+            <div class="col-6">
+              <p class="fw-bold fs-3">${{datosProducto.price}}</p>
+            </div>
+            <div class="col-6">
+              <input
+                  type="number"
+                  class="form-control"
+                  id="exampleInputnumber1"
+                  value={{datosProducto.cantidad}}
+                  (input)="onCambioCantidad(datosProducto.id,$event)"
+                  >
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-3">
+      <div class="row">
+        <div class="col-6">
+          <h2>Total</h2>
+        </div>
+        <div class="col-6">
+          <h2 class="text-end">${{monto}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row  d-flex justify-content-center mb-5">
+    <div class="col-3 d-flex justify-content-center">
+      <button type="button" class="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>
+

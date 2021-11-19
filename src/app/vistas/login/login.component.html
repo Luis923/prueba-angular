@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-8 col-sm-6 col-md-4">
+      <img src="../../../assets/casa.jpg" class="h-25 img-fluid mx-auto d-block	"/>
+      <form [formGroup]="loginForm" (submit)="onLogin(loginForm.value)">
+        <div class="mb-3">
+          <label for="usuario" class="form-label">USUARIO</label>
+          <input type="text" class="form-control d-block" id="usuario">
+        </div>
+        <div class="mb-3">
+          <label for="contrasenia" class="form-label">CONTRASEÑA</label>
+          <input type="password" class="form-control" id="contrasenia">
+        </div>
+        <div class="alert alert-danger" *ngIf="errorStatus">
+          <p>{{ error_msj }}</p>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
